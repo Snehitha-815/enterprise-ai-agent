@@ -42,14 +42,22 @@ if user_input:
     ) as response:
 
 
-        for line in response.iter_lines():
+        for raw_line in response.iter_lines():
+            if not raw_line:
+                continue
+            line = raw_line.decode("utf-8").strip()
             if not line:
                 continue
-            line = line.decode("utf-8").strip()
-            if not line:
+            # Skip SSE prefixes if they appear 
+            if line.startswith("data:"): 
+                line = line[5:].strip() 
+                if not line: 
+                    continue
+            try:
+                data = json.loads(line)
+            except json.JSONDecodeError: 
+                # Skip anything that is not valid JSON 
                 continue
-            
-            data = json.loads(line)
 
             # Stream chunks
             if "chunk" in data:
