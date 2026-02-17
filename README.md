@@ -80,10 +80,9 @@ Code
 
 User → Streamlit UI → FastAPI → LangGraph Agent → Retriever → LLM → Streamed Response → UI
 
-Mermaid Diagram
+### Mermaid Diagram
 
-mermaid
-
+```mermaid
 flowchart TD
     A[User Question] --> B[Streamlit UI]
     B --> C[FastAPI /ask Endpoint]
@@ -94,10 +93,11 @@ flowchart TD
     G --> H[StreamingResponse]
     H --> B
 
-📁 Project Structure
 
-text
+## 🔧**Project Structure**  
 
+```markdown
+```text
 enterprise-ai-agent/
 │
 ├── agent/
@@ -146,6 +146,7 @@ enterprise-ai-agent/
 ### Retrieved Context 
 ![Context](screenshots/context.png)
 
+```markdown
 ## 🛠️ Tech Stack 
 | Layer      | Technology                      | 
 |------------|---------------------------------| 
