@@ -2,7 +2,7 @@
 
 from langgraph.graph import StateGraph, END
 from langchain_openai import ChatOpenAI
-from agent.rag import retriever
+from agent.rag import retriever, vectordb
 from typing import List, Any
 
 class AgentState(dict):
@@ -12,7 +12,9 @@ class AgentState(dict):
 
 def retrieve_node(state: AgentState):
     question = state["question"]
-    docs = retriever.invoke(question)
+    docs_with_scores = vectordb.similarity_search_with_score(question, k=5)
+    docs = [doc for doc, score in docs_with_scores if score > 0.2]
+
     return {"docs": docs}
 
 def llm_node(state: AgentState):
