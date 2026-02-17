@@ -28,7 +28,7 @@ streamlit run ui/app.py
 ```
 Then open the browser and chat with your documents.
 
-🧠 Features
+## 🧠 Features
 
 ✅ Retrieval-Augmented Generation (RAG)
 
@@ -72,7 +72,7 @@ Separation of backend, agent, and UI
 
 Easy to deploy
 
-🏗️ Architecture
+## 🏗️ Architecture
 
 High-level flow
 
@@ -115,7 +115,7 @@ enterprise-ai-agent/
 └── README.md
 ```
 
-🔍 How It Works
+## 🔍 How It Works
 
 1. User asks a question
 
@@ -159,7 +159,7 @@ enterprise-ai-agent/
 | Storage    | Local PDFs                      | 
 | Streaming  | FastAPI SSE + httpx             |
  
-⭐ Why This Project Stands Out
+## ⭐ Why This Project Stands Out
 
 This project demonstrates real AI engineering skills:
 
@@ -177,7 +177,7 @@ Production-ready structure
 
 This is the kind of project that gets interviews.
 
-💼 Resume Bullet Points
+## 💼 Resume Bullet Points
 
 AI/ML Engineer — enterprise-ai-agent (Personal Project)
 
@@ -202,7 +202,7 @@ cd enterprise-ai-agent
 pip install -r requirements.txt
 ```
 
-🔮 Future Enhancements
+## 🔮 Future Enhancements
 
 Chat history in backend
 
