@@ -21,9 +21,17 @@ def ask_agent(query: Query):
     # Run graph normally (no streaming)
     result = agent.invoke({"question": query.question})
     print("AGENT RESULT:", result) 
-    
-    docs = result["docs"]
-    final_answer = result["answer"]
+
+    docs = result.get("docs", []) 
+    answer = result.get("answer", "")
+    # Fallback when no docs are retrieved 
+    if not docs: 
+        final_answer = ( 
+            "Hi! I answer questions based on your documents. " 
+            "Try asking something related to the uploaded PDFs." ) 
+    else: 
+        final_answer = answer
+
 
     # Now stream ONLY the LLM answer
     llm = ChatOpenAI(model="gpt-4o-mini", streaming=True)
