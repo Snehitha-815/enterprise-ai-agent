@@ -3,6 +3,8 @@
 import streamlit as st
 import httpx
 import json
+import os
+BACKEND_URL = os.getenv("BACKEND_URL")
 
 st.set_page_config(page_title="Enterprise AI Agent", layout="wide")
 
@@ -37,6 +39,7 @@ if user_input:
         json={"question": user_input},
         timeout=None
     ) as response:
+
 
         for line in response.iter_lines():
             if not line:
