@@ -33,7 +33,7 @@ if user_input:
     # Stream from backend using httpx
     with httpx.stream(
         "POST",
-        "http://127.0.0.1:8000/ask",
+        f"{BACKEND_URL}/ask",
         json={"question": user_input},
         timeout=None
     ) as response:
