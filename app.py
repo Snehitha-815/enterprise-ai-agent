@@ -20,7 +20,8 @@ def ask_agent(query: Query):
 
     # Run graph normally (no streaming)
     result = agent.invoke({"question": query.question})
-
+    print("AGENT RESULT:", result) 
+    
     docs = result["docs"]
     final_answer = result["answer"]
 

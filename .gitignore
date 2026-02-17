@@ -1,0 +1,12 @@
+# Ignore Chroma DB
+chroma_db/
+
+# Ignore Python cache
+__pycache__/
+
+# Ignore virtual environments
+venv/
+.venv/
+
+# Ignore macOS junk
+.DS_Store
