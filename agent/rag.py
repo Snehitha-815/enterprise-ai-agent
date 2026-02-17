@@ -21,7 +21,20 @@ documents = load_documents()
 
 # Split
 splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
-chunks = splitter.split_documents(documents)
+raw_chunks = splitter.split_documents(documents)
+
+# Filter out garbage chunks (images, tables, noise) 
+chunks = [] 
+for c in raw_chunks: 
+    text = c.page_content.strip() 
+    # Skip chunks that are mostly numbers, slashes, or symbols 
+    if len(text) < 50: 
+        continue 
+    if text.count("/") > 10: 
+        continue 
+    if sum(ch.isdigit() for ch in text) / len(text) > 0.5: 
+        continue 
+    chunks.append(c)
 
 # Embeddings
 embeddings = OpenAIEmbeddings()
@@ -32,6 +45,6 @@ vectordb.persist()
 
 # Retriever (THIS is what graph.py imports)
 retriever = vectordb.as_retriever(
-    search_type="similarity_score_threshold",
-    search_kwargs={"score_threshold": 0.2}
+    search_type="similarity",
+    search_kwargs={"k": 5}
 )
