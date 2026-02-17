@@ -45,7 +45,10 @@ if user_input:
         for line in response.iter_lines():
             if not line:
                 continue
-
+            line = line.decode("utf-8").strip()
+            if not line:
+                continue
+            
             data = json.loads(line)
 
             # Stream chunks
