@@ -92,11 +92,11 @@ flowchart TD
     F --> G[Final Answer + Context]
     G --> H[StreamingResponse]
     H --> B
-
+```
 
 ## 🔧**Project Structure**  
 
-```markdown
+
 ```text
 enterprise-ai-agent/
 │
@@ -113,6 +113,7 @@ enterprise-ai-agent/
 ├── app.py                # FastAPI backend (streaming)
 ├── requirements.txt
 └── README.md
+```
 
 🔍 How It Works
 
@@ -146,7 +147,7 @@ enterprise-ai-agent/
 ### Retrieved Context 
 ![Context](screenshots/context.png)
 
-```markdown
+
 ## 🛠️ Tech Stack 
 | Layer      | Technology                      | 
 |------------|---------------------------------| 
