@@ -31,4 +31,7 @@ vectordb = Chroma.from_documents(chunks, embeddings, persist_directory="chroma_d
 vectordb.persist()
 
 # Retriever (THIS is what graph.py imports)
-retriever = vectordb.as_retriever()
+retriever = vectordb.as_retriever(
+    search_type="similarity_score_threshold",
+    search_kwargs={"score_threshold": 0.2}
+)
