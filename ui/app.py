@@ -45,7 +45,12 @@ if user_input:
         for raw_line in response.iter_lines():
             if not raw_line:
                 continue
-            line = raw_line.decode("utf-8").strip()
+            # Handle both bytes and strings 
+            if isinstance(raw_line, bytes): 
+                line = raw_line.decode("utf-8").strip() 
+            else: 
+                line = raw_line.strip()
+            
             if not line:
                 continue
             # Skip SSE prefixes if they appear 
