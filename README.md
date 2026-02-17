@@ -191,15 +191,16 @@ Designed a clean, user-friendly chat interface with context visualization and pe
 
 Engineered a scalable architecture separating backend, agent logic, and UI for enterprise-ready deployment.
 
-📦 Installation
+## 📦 Installation
 
-bash
+```bash
 
 git clone https://github.com/Snehitha-815/enterprise-ai-agent
 
 cd enterprise-ai-agent
 
 pip install -r requirements.txt
+```
 
 🔮 Future Enhancements
 
