@@ -5,7 +5,8 @@ import httpx
 import json
 import os
 BACKEND_URL = os.getenv("BACKEND_URL")
-
+if BACKEND_URL is None: 
+    st.error("BACKEND_URL is not set in environment variables.")
 st.set_page_config(page_title="Enterprise AI Agent", layout="wide")
 
 st.title("💼 Enterprise AI Agent")
