@@ -79,7 +79,7 @@ if user_input:
     st.session_state["messages"].append({"role": "assistant", "content": full_answer})
 
     # Show retrieved context ONLY if docs exist AND answer is RAG-based
-    if context_data and len(context_data) > 0 and "Hi! I answer" not in full_answer:
+    if context_data and len(context_data) > 0 and "How can I assist you today" not in full_answer:
         with st.expander("🔍 Retrieved Context"):
             for c in context_data:
                 source = c.get("source", "unknown")
