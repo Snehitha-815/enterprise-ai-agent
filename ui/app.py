@@ -78,12 +78,12 @@ if user_input:
     # Save final answer to history
     st.session_state["messages"].append({"role": "assistant", "content": full_answer})
 
-    # Show retrieved context
-    if context_data:
+    # Show retrieved context ONLY if docs exist AND answer is RAG-based
+    if context_data and len(context_data) > 0 and "Hi! I answer" not in full_answer:
         with st.expander("🔍 Retrieved Context"):
             for c in context_data:
-                source = c.get("source", "unknown") 
-                page = c.get("page", "N/A") 
+                source = c.get("source", "unknown")
+                page = c.get("page", "N/A")
                 st.write(f"**Source:** {source} — **Page:** {page}")
                 st.write(c["text"])
                 st.write("---")
